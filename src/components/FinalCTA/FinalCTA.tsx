@@ -1,0 +1,10 @@
+import { Box, Button, Container, Link, Stack, Typography } from '@mui/material'
+import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined'
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward'
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
+import { Link as RouterLink } from 'react-router-dom'
+import { contactInfo } from '../../data/contact'
+
+export function FinalCTA() {
+  return <Box component="section" sx={{ py: { xs: 8, md: 11 }, bgcolor: 'primary.main', color: 'white', position: 'relative', overflow: 'hidden' }}><Box sx={{ position: 'absolute', width: 410, height: 410, borderRadius: '50%', bgcolor: 'rgba(95,168,168,.17)', right: -150, top: -230 }} /><Container sx={{ position: 'relative' }}><Box sx={{ maxWidth: 760, mx: 'auto', textAlign: 'center' }}><Typography variant="overline" sx={{ color: 'rgba(255,255,255,.72)', fontWeight: 700, letterSpacing: '.14em', fontSize: '.72rem' }}>EL SIGUIENTE PASO</Typography><Typography variant="h2" sx={{ mt: 1.25, color: 'common.white' }}>Da el siguiente paso.</Typography><Typography variant="body1" sx={{ mt: 2, color: 'rgba(255,255,255,.76)' }}>No importa cuánto tiempo haya pasado. Lo importante es decidir continuar.</Typography><Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="center" spacing={1.5} sx={{ mt: 4 }}><Button component="a" href={contactInfo.whatsappUrl} target="_blank" rel="noopener noreferrer" variant="contained" color="warning" startIcon={<ChatOutlinedIcon />}>Hablar por WhatsApp</Button><Button component={RouterLink} to="/contacto" variant="outlined" endIcon={<ArrowOutwardIcon />} sx={{ color: 'white', borderColor: 'rgba(255,255,255,.55)', '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,.08)' } }}>Solicitar información</Button></Stack><Link href={contactInfo.emailHref} underline="hover" sx={{ display: 'inline-flex', alignItems: 'center', gap: .75, mt: 3, color: 'rgba(255,255,255,.76)', fontSize: '.9rem' }}><EmailOutlinedIcon fontSize="small" />{contactInfo.email}</Link></Box></Container></Box>
+}

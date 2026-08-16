@@ -1,0 +1,5 @@
+import { Box, Container, Stack } from '@mui/material'
+import { processSteps } from '../../data/process'
+import { ProcessStep } from '../ProcessStep/ProcessStep'
+import { SectionTitle } from '../SectionTitle/SectionTitle'
+export function ProcessSection() { return <Box component="section" id="como-funciona" sx={{ bgcolor: 'background.paper', py: { xs: 8, md: 11 }, scrollMarginTop: { xs: 72, md: 80 }, borderTop: '1px solid', borderBottom: '1px solid', borderColor: 'divider' }}><Container><SectionTitle eyebrow="CÓMO FUNCIONA" title="Tu camino puede comenzar hoy." description="Un proceso sencillo para ayudarte a retomar tus estudios." align="center" /><Box sx={{ mt: { xs: 5, md: 7 }, position: 'relative', '&:before': { content: '""', display: { xs: 'none', md: 'block' }, position: 'absolute', left: '10%', right: '10%', top: 8, borderTop: '1px solid', borderColor: 'divider' } }}><Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 3.5, md: 1 }}>{processSteps.map((step) => <ProcessStep step={step} key={step.number} />)}</Stack></Box></Container></Box> }

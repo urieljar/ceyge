@@ -1,0 +1,9 @@
+import { Box, Card, CardContent, Container, Grid, Typography } from '@mui/material'
+import ReplayOutlinedIcon from '@mui/icons-material/ReplayOutlined'
+import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined'
+import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined'
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined'
+import { audience } from '../../data/audience'
+import { SectionTitle } from '../SectionTitle/SectionTitle'
+const icons = { resume: ReplayOutlinedIcon, work: BusinessCenterOutlinedIcon, family: Groups2OutlinedIcon, target: FlagOutlinedIcon }
+export function AudienceSection() { return <Box component="section" sx={{ py: { xs: 8, md: 11 } }}><Container><SectionTitle eyebrow="PARA DISTINTAS HISTORIAS" title="Una preparatoria pensada para distintas historias." description="Cada persona tiene motivos y responsabilidades diferentes. CEYGE busca ofrecer una alternativa para quienes desean continuar avanzando." align="center" /><Grid container spacing={2.5} sx={{ mt: { xs: 4.5, md: 6 } }}>{audience.map((item) => { const Icon = icons[item.icon]; return <Grid item xs={12} sm={6} md={3} key={item.title}><Card variant="outlined" sx={{ height: '100%', bgcolor: 'background.paper', borderColor: 'divider', boxShadow: 'none', transition: 'transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease', '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 14px 28px rgba(24,59,86,.08)', borderColor: 'secondary.main' } }}><CardContent sx={{ p: { xs: 3, md: 3.25 } }}><Icon sx={{ color: 'secondary.main', fontSize: 28 }} /><Typography variant="h3" sx={{ mt: 3 }}>{item.title}</Typography><Typography variant="body2" color="text.secondary" sx={{ mt: 1.25 }}>{item.description}</Typography></CardContent></Card></Grid> })}</Grid></Container></Box> }
